@@ -18,6 +18,10 @@ class Persona {
     despedirse() {
         console.log("ADIOOOOS")
     }
+
+    presentar() {
+        console.log(`Hola, me llamo ${this.nombre} y tengo ${this.edad} años`)
+    }
 }
 
 const Julio = new Persona("Julio", 22, 1.75, 75)
