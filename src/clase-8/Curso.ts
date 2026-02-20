@@ -34,8 +34,8 @@ export class Curso {
         console.log("==================================================\n")
     }
 
-    estaLleno(cantidadActual: number) {
-        let espaciosLibres = this.capacidad - cantidadActual
+    estaLleno() {
+        let espaciosLibres = this.capacidad - this.estudiantes.length
 
         if (espaciosLibres <= 0) {
             return this.nombre + " esta lleno"
@@ -58,8 +58,17 @@ export class Curso {
 
     mostrarEstudiantes() {
         console.log(`\n=================== ESTUDIANTES DE ${this.nombre} ===========================`)
-        this.estudiantes.forEach(estudiante => {
-            console.log(`- ${estudiante.nombre}`)
-        })
+        if (this.estudiantes.length == 0) {
+            console.log(`${this.nombre} no tiene estudiantes`)
+        } else {
+            console.log(`${this.nombre} tiene ${this.estudiantes.length} estudiante(s)`)
+            let contador = 1
+            for (let estudiante of this.estudiantes) {
+                if (estudiante && estudiante.nombre) {
+                    console.log(`${contador}. ${estudiante.nombre}`)
+                    contador++
+                }
+            }
+        }
     }
 }

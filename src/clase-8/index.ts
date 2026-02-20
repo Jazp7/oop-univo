@@ -87,9 +87,9 @@ curso2.mostrarInfo()
 curso3.mostrarInfo()
 
 console.log("\n==================== ESTADO DE LOS CURSOS ===========================")
-console.log(curso1.estaLleno(30))
-console.log(curso2.estaLleno(40))
-console.log(curso3.estaLleno(45))
+console.log(curso1.estaLleno())
+console.log(curso2.estaLleno())
+console.log(curso3.estaLleno())
 
 
 console.log("\n=================== PROFESORES ===========================")
@@ -178,3 +178,40 @@ console.log("\n=================== CURSOS DE LOS ESTUDIANTES ===================
 estudiante1.mostrarInfo()
 estudiante2.mostrarInfo()
 estudiante3.mostrarInfo()
+
+// Agregar estudiantes a los cursos
+console.log("\n=================== AGREGAR ESTUDIANTES A LOS CURSOS ===========================")
+curso1.agregarEstudiante(estudiante1)
+curso2.agregarEstudiante(estudiante1)
+curso3.agregarEstudiante(estudiante1)
+
+curso2.agregarEstudiante(estudiante2)
+curso3.agregarEstudiante(estudiante2)
+
+curso1.agregarEstudiante(estudiante3)
+curso3.agregarEstudiante(estudiante3)
+
+curso1.mostrarEstudiantes()
+curso2.mostrarEstudiantes()
+curso3.mostrarEstudiantes()
+
+// Asignar profesores a los cursos
+console.log("\n=================== ASIGNAR PROFESORES A LOS CURSOS ===========================")
+profesor1.agregarCurso(curso1)
+profesor2.agregarCurso(curso2)
+profesor3.agregarCurso(curso3)
+
+profesor1.mostrarCursos()
+profesor2.mostrarCursos()
+profesor3.mostrarCursos()
+
+console.log("\n=================== RESUMEN DE PROFESORES ===========================")
+profesor1.resumen()
+profesor2.resumen()
+profesor3.resumen()
+
+// Historial de las matrículas
+console.log("\n=================== HISTORIAL DE ESTADOS DE LAS MATRICULAS ===========================")
+matricula1.mostrarHistorialEstados()
+matricula2.mostrarHistorialEstados()
+matricula3.mostrarHistorialEstados()

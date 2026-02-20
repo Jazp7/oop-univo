@@ -1,19 +1,24 @@
+import { Curso } from "./Curso"
+
 export class Profesor {
     nombre: string
     especialidad: string
     añosExperiencia: number
     correo: string
+    cursos: Curso[]
 
     constructor(
         nombre: string,
         especialidad: string,
         añosExperiencia: number,
-        correo: string
+        correo: string,
+        cursos: Curso[] = []
     ) {
         this.nombre = nombre
         this.especialidad = especialidad
         this.añosExperiencia = añosExperiencia
         this.correo = correo
+        this.cursos = cursos
     }
 
     mostrarInfo() {
@@ -30,6 +35,30 @@ export class Profesor {
             return this.nombre + " es un profesor experimentado"
         } else {
             return this.nombre + " es un profesor en desarrollo profesional"
+        }
+    }
+
+    agregarCurso(curso: Curso) {
+        this.cursos.push(curso)
+        console.log(`${this.nombre} asignado al curso: ${curso.nombre}`)
+    }
+
+    mostrarCursos() {
+        if (this.cursos.length === 0) {
+            console.log(`${this.nombre} no tiene ningun curso asignado!`)
+        } else {
+            console.log(`${this.nombre} impartira ${this.cursos.length} curso(s):`)
+            this.cursos.forEach(curso => {
+                console.log(`- ${curso.nombre}`)
+            })
+        }
+    }
+
+    resumen(): string {
+        if (this.cursos.length === 0) {
+            return `${this.nombre} | ${this.especialidad} | Sin cursos asignados`
+        } else {
+            return `${this.nombre} | ${this.especialidad} | Tiene asignado: ${this.cursos.length} curso(s)`
         }
     }
 }

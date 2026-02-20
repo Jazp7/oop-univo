@@ -8,19 +8,22 @@ export class Matricula {
     profesor: Profesor
     estado: string
     fechaInscripcion: Date
+    historialEstados: string[]
 
     constructor(
         estudiante: Estudiante,
         curso: Curso,
         profesor: Profesor,
         fechaInscripcion: Date,
-        estado: string
+        estado: string,
+        historialEstados: string[] = []
     ) {
         this.estudiante = estudiante
         this.curso = curso
         this.profesor = profesor
         this.fechaInscripcion = fechaInscripcion
         this.estado = estado
+        this.historialEstados = historialEstados
     }
 
     mostrarInfo() {
@@ -36,6 +39,7 @@ export class Matricula {
     cambiarEstado(nuevoEstado: string) {
         let estadoAnterior = this.estado
         this.estado = nuevoEstado
+        this.historialEstados.push(nuevoEstado)
 
         console.log(`Estado de ${this.estudiante.nombre} en el curso ${this.curso.nombre} ha cambiado de ${estadoAnterior} a ${nuevoEstado}`)
     }
@@ -45,6 +49,17 @@ export class Matricula {
             return this.estudiante.nombre + " tiene una matricula activa en el curso: " + this.curso.nombre
         } else {
             return this.estudiante.nombre + " no tiene una matricula activa en el curso: " + this.curso.nombre
+        }
+    }
+
+    mostrarHistorialEstados() {
+        if (this.historialEstados.length === 0) {
+            console.log(`${this.estudiante.nombre} en ${this.curso.nombre} no tiene cambios de estados`)
+        } else {
+            console.log(`${this.estudiante.nombre} en ${this.curso.nombre} - Tiene el siguiente Historial de Estados: `)
+            for (let i = 0; i < this.historialEstados.length; i++) {
+                console.log(`- ${this.historialEstados[i]}`)
+            }
         }
     }
 }
