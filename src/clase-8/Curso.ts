@@ -1,22 +1,27 @@
+import { Estudiante } from "./Estudiante"
+
 export class Curso {
     nombre: string
     codigo: string
     unidades: number
     capacidad: number
     aula: string
+    estudiantes: Estudiante[]
 
     constructor(
         nombre: string,
         codigo: string,
         unidades: number,
         capacidad: number = 40,
-        aula?: string
+        aula?: string,
+        estudiantes: Estudiante[] = []
     ) {
         this.nombre = nombre
         this.codigo = codigo
         this.unidades = unidades
         this.capacidad = capacidad
         this.aula = aula || "Sin asignar"
+        this.estudiantes = estudiantes
     }
 
     mostrarInfo() {
@@ -39,5 +44,22 @@ export class Curso {
         } else {
             return this.nombre + " tiene espacio, y quedan: " + espaciosLibres + " espacios"
         }
+    }
+
+    agregarEstudiante(estudiante: Estudiante) {
+        if (this.estudiantes.length >= this.capacidad) {
+            console.log(`No se puede agregar a ${estudiante.nombre}, el curso ${this.nombre} esta lleno`)
+            return
+        } else {
+            this.estudiantes.push(estudiante)
+            console.log(`Estudiante agregado a ${this.nombre}: ${estudiante.nombre}`)
+        }
+    }
+
+    mostrarEstudiantes() {
+        console.log(`\n=================== ESTUDIANTES DE ${this.nombre} ===========================`)
+        this.estudiantes.forEach(estudiante => {
+            console.log(`- ${estudiante.nombre}`)
+        })
     }
 }
