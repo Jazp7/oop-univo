@@ -123,3 +123,58 @@ console.log("\n=================== EXPERIENCIA ===========================")
 console.log(profesor1.esExperimentado())
 console.log(profesor2.esExperimentado())
 console.log(profesor3.esExperimentado())
+
+
+console.log("\n=================== MATRICULAS ===========================")
+const matricula1 = new Matricula(
+    estudiante1,
+    curso1,
+    profesor1,
+    new Date("2026-01-10"),
+    "Activa"
+)
+
+const matricula2 = new Matricula(
+    estudiante2,
+    curso2,
+    profesor2,
+    new Date("2026-01-10"),
+    "Activa"
+)
+
+const matricula3 = new Matricula(
+    estudiante3,
+    curso3,
+    profesor3,
+    new Date("2026-01-10"),
+    "No activa"
+)
+
+matricula1.mostrarInfo()
+matricula2.mostrarInfo()
+matricula3.mostrarInfo()
+
+console.log("\n=================== ESTADO DE LAS MATRICULAS ===========================")
+console.log(matricula1.estaActiva())
+console.log(matricula2.estaActiva())
+console.log(matricula3.estaActiva())
+
+matricula1.cambiarEstado("No activa")
+matricula2.cambiarEstado("No activa")
+matricula3.cambiarEstado("Activa")
+
+console.log("\n=================== ESTADO DE LAS MATRICULAS ACTUALIZADO ===========================")
+console.log(matricula1.estaActiva())
+console.log(matricula2.estaActiva())
+console.log(matricula3.estaActiva())
+
+
+// Cursos para estudiantes
+estudiante1.agregarCurso(curso1)
+estudiante2.agregarCurso(curso2)
+estudiante3.agregarCurso(curso3)
+
+console.log("\n=================== CURSOS DE LOS ESTUDIANTES ===========================")
+estudiante1.mostrarInfo()
+estudiante2.mostrarInfo()
+estudiante3.mostrarInfo()
